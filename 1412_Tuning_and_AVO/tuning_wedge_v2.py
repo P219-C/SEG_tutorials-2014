@@ -10,10 +10,12 @@ This script is provided without warranty of any kind.
 
 """
 
-
+# Importing libraries
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
+import scipy.signal as signal
+from numpy.fft import fft, ifft, fftfreq, fftshift, ifftshift
 
 
 
@@ -65,8 +67,9 @@ excursion = 2
 
 def plot_vawig(axhdl, data, t, excursion, highlight=None):
 
-    import numpy as np
-    import matplotlib.pyplot as plt
+    # Library requirements:
+    # import numpy as np
+    # import matplotlib.pyplot as plt
 
     [ntrc, nsamp] = data.shape
     
@@ -112,8 +115,9 @@ def ricker(cfreq, phase, dt, wvlt_length):
     wvlt_length: length of wavelet in seconds
     '''
     
-    import numpy as np
-    import scipy.signal as signal
+    # Library requirements:
+    # import numpy as np
+    # import scipy.signal as signal
     
     nsamp = int(wvlt_length/dt + 1)
     t_max = wvlt_length*0.5
@@ -149,8 +153,9 @@ def wvlt_bpass(f1, f2, f3, f4, phase, dt, wvlt_length):
     dt: sample rate in seconds
     wvlt_length: length of wavelet in seconds
     '''
-    
-    from numpy.fft import fft, ifft, fftfreq, fftshift, ifftshift
+    # Library requirements:
+    # import scipy.signal as signal
+    # from numpy.fft import fft, ifft, fftfreq, fftshift, ifftshift
     
     nsamp = int(wvlt_length/dt + 1)
     
@@ -256,8 +261,8 @@ def digitize_model(rc_int, t_int, t):
     t_int = interface times
     t = regularly sampled time series defining model sampling
     '''
-    
-    import numpy as np
+    # Library requirements
+    # import numpy as np
     
     nlayers = len(rc_int)
     nint = nlayers - 1

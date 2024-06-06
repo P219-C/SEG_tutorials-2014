@@ -13,7 +13,7 @@ This script is provided without warranty of any kind.
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-
+import scipy.signal as signal
 
 ###########################################################
 #
@@ -61,8 +61,9 @@ excursion = 2
 
 def plot_vawig(axhdl, data, t, excursion):
 
-    import numpy as np
-    import matplotlib.pyplot as plt
+    # Library requirements
+    # import numpy as np
+    # import matplotlib.pyplot as plt
 
     [ntrc, nsamp] = data.shape
     
@@ -101,8 +102,9 @@ def ricker(cfreq, phase, dt, wvlt_length):
     wvlt_length: length of wavelet in seconds
     '''
     
-    import numpy as np
-    import scipy.signal as signal
+    # Library requirements
+    # import numpy as np
+    # import scipy.signal as signal
     
     nsamp = int(wvlt_length/dt + 1)
     t_max = wvlt_length*0.5
@@ -165,7 +167,8 @@ def digitize_model(rc_int, t_int, t):
     t = regularly sampled time series defining model sampling
     '''
     
-    import numpy as np
+    # Library requirements
+    # import numpy as np
     
     nlayers = len(rc_int)
     nint = nlayers - 1
@@ -199,8 +202,8 @@ def rc_zoep(vp1, vs1, rho1, vp2, vs2, rho2, theta1):
     ----------
     The Rock Physics Handbook, Dvorkin et al.
     '''
-    
-    import math
+    # Library requirements
+    # import math
     
     # Cast inputs to floats
     vp1  = float(vp1)
@@ -261,7 +264,8 @@ def ray_param(v, theta):
         p = ray parameter (i.e. sin(theta)/v )
     '''
     
-    import math
+    # Library requirements
+    # import math
     
     # Cast inputs to floats
     theta = float(theta)
