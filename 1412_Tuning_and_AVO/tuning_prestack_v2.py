@@ -69,6 +69,12 @@ excursion = 2
 #
 
 def plot_vawig(axhdl, data, t, excursion):
+    '''
+    Libraries:
+    ------
+    import numpy as np
+    import matplotlib.pyplot as plt
+    '''
 
     # Library requirements
     # import numpy as np
@@ -109,6 +115,11 @@ def ricker(cfreq, phase, dt, wvlt_length):
     phase: wavelet phase in degrees
     dt: sample rate in seconds
     wvlt_length: length of wavelet in seconds
+
+    Libraries:
+    ------
+    import numpy as np
+    import scipy.signal as signal    
     '''
     
     # Library requirements
@@ -150,6 +161,11 @@ def wvlt_bpass(f1, f2, f3, f4, phase, dt, wvlt_length):
     phase: wavelet phase in degrees
     dt: sample rate in seconds
     wvlt_length: length of wavelet in seconds
+
+    Libraries:
+    ------
+    import scipy.signal as signal
+    from numpy.fft import fft, ifft, fftfreq, fftshift, ifftshift    
     '''
     
     # Library requirements
@@ -253,6 +269,10 @@ def digitize_model(rc_int, t_int, t):
     rc = reflection coefficients corresponding to interface times
     t_int = interface times
     t = regularly sampled time series defining model sampling
+
+    Libraries:
+    ------
+    import numpy as np
     '''
     
     # Library requirements
@@ -289,6 +309,10 @@ def rc_zoep(vp1, vs1, rho1, vp2, vs2, rho2, theta1):
     Reference:
     ----------
     The Rock Physics Handbook, Dvorkin et al.
+
+    Libraries:
+    ------
+    import math
     '''
     
     # Library requirements
@@ -351,6 +375,10 @@ def ray_param(v, theta):
     Output:
     -------
         p = ray parameter (i.e. sin(theta)/v )
+
+    Libraries:
+    ------
+    import math
     '''
     
     # Library requirements
@@ -486,9 +514,10 @@ Aconv = np.dot(np.dot(np.linalg.inv(np.dot(X.T, X)), X.T), Yconv)
 print('\n\n')
 print('  Method       NI         GRAD')
 print('---------------------------------')
-print(' Zoeppritz%11.5f%12.5f' % (Azoep[0], Azoep[1]))
-print(' Convolved%10.5f%12.5f' % (Aconv[0], Aconv[1]))
-
+# print(' Zoeppritz%11.5f%12.5f' % (Azoep[0], Azoep[1]))
+# print(' Convolved%10.5f%12.5f' % (Aconv[0], Aconv[1]))
+print(f' Zoeppritz {Azoep[0]} {Azoep[1]}')
+print(f' Convolved {Aconv[0]} {Aconv[1]}')
 
     
 #   Create a "digital" time domain version of the input property model for 

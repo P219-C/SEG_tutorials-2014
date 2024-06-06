@@ -36,7 +36,7 @@ dz_step= 1.0   # Thickness step from trace-to-trace (normally 1.0 m)
 
 
 #   Wavelet Parameters
-wvlt_type = 'bandpass'  # Valid values: 'ricker' or 'bandpass'
+wvlt_type = 'ricker'  # Valid values: 'ricker' or 'bandpass'
 wvlt_length= 0.128 # Wavelet length in seconds
 wvlt_phase = 0.0   # Wavelet phase in degrees
 wvlt_scalar = 1.0  # Multiplier to scale wavelet amplitude (default = 1.0)
@@ -66,6 +66,12 @@ excursion = 2
 #
 
 def plot_vawig(axhdl, data, t, excursion, highlight=None):
+    '''
+    Libraries:
+    ------
+    import numpy as np
+    import matplotlib.pyplot as plt
+    '''
 
     # Library requirements:
     # import numpy as np
@@ -113,6 +119,11 @@ def ricker(cfreq, phase, dt, wvlt_length):
     phase: wavelet phase in degrees
     dt: sample rate in seconds
     wvlt_length: length of wavelet in seconds
+
+    Libraries:
+    ------
+    import numpy as np
+    import scipy.signal as signal
     '''
     
     # Library requirements:
@@ -152,6 +163,11 @@ def wvlt_bpass(f1, f2, f3, f4, phase, dt, wvlt_length):
     phase: wavelet phase in degrees
     dt: sample rate in seconds
     wvlt_length: length of wavelet in seconds
+
+    Libraries:
+    ------
+    import scipy.signal as signal
+    from numpy.fft import fft, ifft, fftfreq, fftshift, ifftshift
     '''
     # Library requirements:
     # import scipy.signal as signal
@@ -260,6 +276,10 @@ def digitize_model(rc_int, t_int, t):
     rc = reflection coefficients corresponding to interface times
     t_int = interface times
     t = regularly sampled time series defining model sampling
+
+    Libraries:
+    ------
+    import numpy as np
     '''
     # Library requirements
     # import numpy as np
